@@ -25,8 +25,9 @@ class Caltech(VisionDataset):
         DataMatrix=[]
         classLableArray=[]
         dir=os.listdir(root)
-        
+        print('1')
         print(dir)
+        return dir
         '''
         - Here you should implement the logic for reading the splits files and accessing elements
         - If the RAM size allows it, it is faster to store all data in memory
