@@ -22,16 +22,16 @@ class Caltech(VisionDataset):
         self.split = split # This defines the split you are going to use
                            # (split files are called 'train.txt' and 'test.txt')
 
-        Data=[]
+        datas=[]
         
         with open('train.txt') as f:
             for line in f:
                 lab=line.split('/')[0]
                 img=line.split('/')[1].strip()
                 image=pil_loader(root+'/'+lab+'/'+img)
-                Data.append((image,lab))
+                datas.append((image,lab))
         
-        self.data=Data
+        self.data=datas
 
 
      
