@@ -39,7 +39,9 @@ class Caltech(VisionDataset):
 
     def __getitem__(self, index):
 
-        image, label = self.data[index] # Provide a way to access image and label via index
+        (image, label) = self.data[index] 
+        
+                            # Provide a way to access image and label via index
                            # Image should be a PIL Image
                            # label can be int
 
