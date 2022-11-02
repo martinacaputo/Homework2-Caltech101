@@ -26,13 +26,7 @@ class Caltech(VisionDataset):
         lables=[]
         k=0
         j=0
-        classLables= {
-        'BACKGROUND_Google':0,
-        'Faces':1,
-        'Faces_easy':2,
-        'Leopards': 3,
-        'Motorbikes':4,
-        }
+        
         with open(root+'/train.txt') as f:
             for line in f:
                 lab=line.split('/')[0]
@@ -40,17 +34,17 @@ class Caltech(VisionDataset):
                 image=pil_loader(root+'/101_ObjectCategories'+'/'+lab+'/'+img)
                 idl=0
                 k=0
-                if len(lables)==0
+                if len(lables)==0:
                     lables.append((lab,j))
-                    j++
-                for i in lables
-                    if i[0]==lab
+                    j=j+1
+                for i in lables:
+                    if i[0]==lab:
                         k=1
                         idl=i[1]
-                if k==0
+                if k==0:
                    lables.append((lab,j)) 
                    idl=j
-                   j++
+                   j=j+1
                    
                   
                 self.data.append((image,idl))
