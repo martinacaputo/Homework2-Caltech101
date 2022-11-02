@@ -16,31 +16,50 @@ def pil_loader(path):
 
 class Caltech(VisionDataset):
     def __init__(self, root, split='train', transform=None, target_transform=None):
-        super(Caltech, self).__init__(root, transform=transform, target_transform=target_transform)
+        super(Caltech, self).__init__(root+'/101_ObjectCategories', transform=transform, target_transform=target_transform)
 
         
         self.split = split # This defines the split you are going to use
                            # (split files are called 'train.txt' and 'test.txt')
 
         self.data=[]
+        lables=[]
+        k=0
+        j=0
         classLables= {
-        'Iris-setosa':0,
-        'Iris-versicolor':1,
-        'Iris-virginica':2
+        'BACKGROUND_Google':0,
+        'Faces':1,
+        'Faces_easy':2,
+        'Leopards': 3,
+        'Motorbikes':4,
         }
-        with open('train.txt') as f:
+        with open(root+'/train.txt') as f:
             for line in f:
                 lab=line.split('/')[0]
                 img=line.split('/')[1].strip()
-                image=pil_loader(root+'/'+lab+'/'+img)
-                lable=classLables[lab]
-                self.data.append((image,lable))
+                image=pil_loader(root+'/101_ObjectCategories'+'/'+lab+'/'+img)
+                idl=0
+                k=0
+                if len(lables)==0
+                    lables.append((lab,j))
+                    j++
+                for i in lables
+                    if i[0]==lab
+                        k=1
+                        idl=i[1]
+                if k==0
+                   lables.append((lab,j)) 
+                   idl=j
+                   j++
+                   
+                  
+                self.data.append((image,idl))
         
         
 
 
      
-        return self
+        return None
 
     def __getitem__(self, index):
 
