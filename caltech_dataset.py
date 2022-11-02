@@ -23,13 +23,18 @@ class Caltech(VisionDataset):
                            # (split files are called 'train.txt' and 'test.txt')
 
         self.data=[]
-        
+        classLables= {
+        'Iris-setosa':0,
+        'Iris-versicolor':1,
+        'Iris-virginica':2
+        }
         with open('train.txt') as f:
             for line in f:
                 lab=line.split('/')[0]
                 img=line.split('/')[1].strip()
                 image=pil_loader(root+'/'+lab+'/'+img)
-                self.data.append((image,lab))
+                lable=classLables[lab]
+                self.data.append((image,lable))
         
         
 
