@@ -57,7 +57,7 @@ class Caltech(VisionDataset):
 
     def __getitem__(self, index):
 
-        (image, label) = self.data[index] 
+        image, label = self.data[index] 
         
                             # Provide a way to access image and label via index
                            # Image should be a PIL Image
@@ -67,7 +67,7 @@ class Caltech(VisionDataset):
         if self.transform is not None:
             image = self.transform(image)
 
-        return (image, label)
+        return image, label
 
     def __len__(self):
         length = len(self.data) # Provide a way to get the length (number of elements) of the dataset
