@@ -46,7 +46,7 @@ class Caltech(VisionDataset):
                    idl=j
                    j=j+1
                    
-                print(idl)
+            
                 self.data.append((image,idl))
         
         
